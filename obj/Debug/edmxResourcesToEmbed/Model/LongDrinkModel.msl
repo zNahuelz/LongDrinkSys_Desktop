@@ -1,0 +1,110 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="LongDrinkModelStoreContainer" CdmEntityContainer="LongDrinkEntities">
+    <EntitySetMapping Name="Alumno">
+      <EntityTypeMapping TypeName="LongDrinkModel.Alumno">
+        <MappingFragment StoreEntitySet="Alumno">
+          <ScalarProperty Name="id_alumno" ColumnName="id_alumno" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="ap_materno" ColumnName="ap_materno" />
+          <ScalarProperty Name="ap_paterno" ColumnName="ap_paterno" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="dni" ColumnName="dni" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Clases">
+      <EntityTypeMapping TypeName="LongDrinkModel.Clases">
+        <MappingFragment StoreEntitySet="Clases">
+          <ScalarProperty Name="id_clase" ColumnName="id_clase" />
+          <ScalarProperty Name="id_curso" ColumnName="id_curso" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="guia" ColumnName="guia" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Curso">
+      <EntityTypeMapping TypeName="LongDrinkModel.Curso">
+        <MappingFragment StoreEntitySet="Curso">
+          <ScalarProperty Name="id_curso" ColumnName="id_curso" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="costo" ColumnName="costo" />
+          <ScalarProperty Name="duracion" ColumnName="duracion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Especialidad">
+      <EntityTypeMapping TypeName="LongDrinkModel.Especialidad">
+        <MappingFragment StoreEntitySet="Especialidad">
+          <ScalarProperty Name="id_especialidad" ColumnName="id_especialidad" />
+          <ScalarProperty Name="id_profesor" ColumnName="id_profesor" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Profesor">
+      <EntityTypeMapping TypeName="LongDrinkModel.Profesor">
+        <MappingFragment StoreEntitySet="Profesor">
+          <ScalarProperty Name="id_profesor" ColumnName="id_profesor" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="ap_materno" ColumnName="ap_materno" />
+          <ScalarProperty Name="ap_paterno" ColumnName="ap_paterno" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="dni" ColumnName="dni" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Turnos">
+      <EntityTypeMapping TypeName="LongDrinkModel.Turnos">
+        <MappingFragment StoreEntitySet="Turnos">
+          <ScalarProperty Name="id_turno" ColumnName="id_turno" />
+          <ScalarProperty Name="id_curso" ColumnName="id_curso" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="hora_inicio" ColumnName="hora_inicio" />
+          <ScalarProperty Name="hora_final" ColumnName="hora_final" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Usuario">
+      <EntityTypeMapping TypeName="LongDrinkModel.Usuario">
+        <MappingFragment StoreEntitySet="Usuario">
+          <ScalarProperty Name="id_usuario" ColumnName="id_usuario" />
+          <ScalarProperty Name="nombre_usuario" ColumnName="nombre_usuario" />
+          <ScalarProperty Name="contrasena" ColumnName="contrasena" />
+          <ScalarProperty Name="permisos" ColumnName="permisos" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Inscripcion">
+      <EntityTypeMapping TypeName="LongDrinkModel.Inscripcion">
+        <MappingFragment StoreEntitySet="Inscripcion">
+          <ScalarProperty Name="id_curso" ColumnName="id_curso" />
+          <ScalarProperty Name="id_alumno" ColumnName="id_alumno" />
+          <ScalarProperty Name="fecha_inscripcion" ColumnName="fecha_inscripcion" />
+          <ScalarProperty Name="fecha_inicio" ColumnName="fecha_inicio" />
+          <ScalarProperty Name="fecha_final" ColumnName="fecha_final" />
+          <ScalarProperty Name="en_curso" ColumnName="en_curso" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Profesor_Curso">
+      <EntityTypeMapping TypeName="LongDrinkModel.Profesor_Curso">
+        <MappingFragment StoreEntitySet="Profesor_Curso">
+          <ScalarProperty Name="id_profesor" ColumnName="id_profesor" />
+          <ScalarProperty Name="id_curso" ColumnName="id_curso" />
+          <ScalarProperty Name="fecha_inicio" ColumnName="fecha_inicio" />
+          <ScalarProperty Name="fecha_final" ColumnName="fecha_final" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="Usuario_Profesor" TypeName="LongDrinkModel.Usuario_Profesor" StoreEntitySet="Usuario_Profesor">
+      <EndProperty Name="Profesor">
+        <ScalarProperty Name="id_profesor" ColumnName="id_profesor" />
+      </EndProperty>
+      <EndProperty Name="Usuario">
+        <ScalarProperty Name="id_usuario" ColumnName="id_usuario" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="4b497c5fcdd34acc85fa927ef80a5214" Name="Diagram1">
+        <EntityTypeShape EntityType="LongDrinkModel.Alumno" Width="1.5" PointX="3.75" PointY="11" IsExpanded="true" />
+        <EntityTypeShape EntityType="LongDrinkModel.Clases" Width="1.5" PointX="3" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="LongDrinkModel.Curso" Width="1.5" PointX="0.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="LongDrinkModel.Especialidad" Width="1.5" PointX="6" PointY="9.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="LongDrinkModel.Profesor" Width="1.5" PointX="3.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="LongDrinkModel.Turnos" Width="1.5" PointX="3" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="LongDrinkModel.Usuario" Width="1.5" PointX="6" PointY="12.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="LongDrinkModel.Inscripcion" Width="1.5" PointX="6" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="LongDrinkModel.Profesor_Curso" Width="1.5" PointX="6" PointY="2" IsExpanded="true" />
+        <AssociationConnector Association="LongDrinkModel.FK_IcA" ManuallyRouted="false" />
+        <AssociationConnector Association="LongDrinkModel.FK_CsC" ManuallyRouted="false" />
+        <AssociationConnector Association="LongDrinkModel.FK_IcC" ManuallyRouted="false" />
+        <AssociationConnector Association="LongDrinkModel.FK_PcC" ManuallyRouted="false" />
+        <AssociationConnector Association="LongDrinkModel.FK_TnC" ManuallyRouted="false" />
+        <AssociationConnector Association="LongDrinkModel.FK_EpP" ManuallyRouted="false" />
+        <AssociationConnector Association="LongDrinkModel.FK_PcP" ManuallyRouted="false" />
+        <AssociationConnector Association="LongDrinkModel.Usuario_Profesor" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

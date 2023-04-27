@@ -1,0 +1,16 @@
+D:\Development\C#\LongDrinkSys_Local\bin\Debug\LongDrinkSys_Local.exe.config
+D:\Development\C#\LongDrinkSys_Local\bin\Debug\LongDrinkSys_Local.exe
+D:\Development\C#\LongDrinkSys_Local\bin\Debug\LongDrinkSys_Local.pdb
+D:\Development\C#\LongDrinkSys_Local\obj\Debug\LongDrinkSys_Local.csproj.AssemblyReference.cache
+D:\Development\C#\LongDrinkSys_Local\obj\Debug\LongDrinkSys_Local.csproj.SuggestedBindingRedirects.cache
+D:\Development\C#\LongDrinkSys_Local\obj\Debug\LongDrinkSys_Local.Properties.Resources.resources
+D:\Development\C#\LongDrinkSys_Local\obj\Debug\LongDrinkSys_Local.frmLogin.resources
+D:\Development\C#\LongDrinkSys_Local\obj\Debug\LongDrinkSys_Local.csproj.GenerateResource.cache
+D:\Development\C#\LongDrinkSys_Local\obj\Debug\LongDrinkSys_Local.csproj.CoreCompileInputs.cache
+D:\Development\C#\LongDrinkSys_Local\obj\Debug\LongDrinkSys_Local.exe
+D:\Development\C#\LongDrinkSys_Local\obj\Debug\LongDrinkSys_Local.pdb
+D:\Development\C#\LongDrinkSys_Local\bin\Debug\EntityFramework.dll
+D:\Development\C#\LongDrinkSys_Local\bin\Debug\EntityFramework.SqlServer.dll
+D:\Development\C#\LongDrinkSys_Local\bin\Debug\EntityFramework.xml
+D:\Development\C#\LongDrinkSys_Local\bin\Debug\EntityFramework.SqlServer.xml
+D:\Development\C#\LongDrinkSys_Local\obj\Debug\LongDrinkSys_Local.csproj.CopyComplete
