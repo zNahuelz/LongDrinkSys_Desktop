@@ -1,4 +1,6 @@
 ﻿using LongDrinkSys_Local.Model;
+using LongDrinkSys_Local.Utils;
+using LongDrinkSys_Local.View;
 using System;
 using System.Linq;
 using System.Windows.Forms;
@@ -7,6 +9,7 @@ namespace LongDrinkSys_Local
 {
     public partial class frmLogin : Form
     {
+        private frmRecuperarCredenciales fRecuperar;
         public frmLogin()
         {
             InitializeComponent();
@@ -14,6 +17,9 @@ namespace LongDrinkSys_Local
 
         private void Label1_Click(object sender, EventArgs e)
         {
+            fRecuperar = new frmRecuperarCredenciales();
+            this.Hide();
+            fRecuperar.ShowDialog();
 
         }
 
@@ -30,8 +36,12 @@ namespace LongDrinkSys_Local
                 bool Login = IniciarSesion(txtUsuario.Text, txtContrasena.Text);
                 if (Login)
                 {
-                    MessageBox.Show("Login correcto!");
-                    //TO-DO: Permisos, form principal...
+                    this.Hide();
+                    frmPrincipal fP = new frmPrincipal();
+                    Usuario usr = ObtenerDatos(txtUsuario.Text);
+                    fP.NombreUsuario = usr.nombre_usuario;
+                    fP.PermisosUsuario = usr.permisos;
+                    fP.ShowDialog();
                 }
                 else
                 {
@@ -64,6 +74,42 @@ namespace LongDrinkSys_Local
                 r = false;
             }
             return r;
+        }
+
+        public Usuario ObtenerDatos(string usuario)
+        {
+            try
+            {
+                using (LongDrinkEntities db = new LongDrinkEntities())
+                {
+                    var sql = db.Usuario.FirstOrDefault(e => e.nombre_usuario.Equals(usuario));
+                    if (sql != null)
+                    {
+                        return sql;
+                    }
+                    else
+                    {
+                        return null;
+                    }
+                }
+            }
+            catch (Exception) { return null; }
+        }
+
+        private void txtUsuario_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Tools.Next(txtContrasena, e);
+        }
+
+        private void txtContrasena_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13) { btnIniciar_Click(sender, e); }
+        }
+
+        private void frmLogin_Load(object sender, EventArgs e)
+        {
+            txtUsuario.MaxLength = 20;
+            txtContrasena.MaxLength = 20;
         }
     }
 }
