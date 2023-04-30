@@ -34,14 +34,16 @@
             this.tsBSalir = new System.Windows.Forms.ToolStripButton();
             this.lblDatos = new System.Windows.Forms.ToolStripLabel();
             this.tReloj = new System.Windows.Forms.Timer(this.components);
+            this.tsBCursos = new System.Windows.Forms.ToolStripButton();
             this.tsPrincipal.SuspendLayout();
             this.SuspendLayout();
             // 
             // tsPrincipal
             // 
             this.tsPrincipal.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsBSalir,
-            this.lblDatos});
+            this.lblDatos,
+            this.tsBCursos,
+            this.tsBSalir});
             this.tsPrincipal.Location = new System.Drawing.Point(0, 0);
             this.tsPrincipal.Name = "tsPrincipal";
             this.tsPrincipal.Size = new System.Drawing.Size(1123, 38);
@@ -69,6 +71,16 @@
             // tReloj
             // 
             this.tReloj.Tick += new System.EventHandler(this.tReloj_Tick);
+            // 
+            // tsBCursos
+            // 
+            this.tsBCursos.Image = ((System.Drawing.Image)(resources.GetObject("tsBCursos.Image")));
+            this.tsBCursos.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsBCursos.Name = "tsBCursos";
+            this.tsBCursos.Size = new System.Drawing.Size(55, 35);
+            this.tsBCursos.Text = "CURSOS";
+            this.tsBCursos.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.tsBCursos.Click += new System.EventHandler(this.tsBCursos_Click);
             // 
             // frmPrincipal
             // 
@@ -98,5 +110,6 @@
         private System.Windows.Forms.ToolStripButton tsBSalir;
         private System.Windows.Forms.ToolStripLabel lblDatos;
         private System.Windows.Forms.Timer tReloj;
+        private System.Windows.Forms.ToolStripButton tsBCursos;
     }
 }

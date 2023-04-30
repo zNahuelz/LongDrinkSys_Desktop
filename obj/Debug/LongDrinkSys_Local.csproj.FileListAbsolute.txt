@@ -16,3 +16,4 @@ D:\Development\C#\LongDrinkSys_Local\bin\Debug\EntityFramework.SqlServer.xml
 D:\Development\C#\LongDrinkSys_Local\obj\Debug\LongDrinkSys_Local.csproj.CopyComplete
 D:\Development\C#\LongDrinkSys_Local\obj\Debug\LongDrinkSys_Local.View.frmPrincipal.resources
 D:\Development\C#\LongDrinkSys_Local\obj\Debug\LongDrinkSys_Local.View.frmRecuperarCredenciales.resources
+D:\Development\C#\LongDrinkSys_Local\obj\Debug\LongDrinkSys_Local.View.frmCursos.resources

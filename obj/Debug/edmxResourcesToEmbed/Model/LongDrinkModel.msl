@@ -26,6 +26,7 @@
     <EntitySetMapping Name="Curso">
       <EntityTypeMapping TypeName="LongDrinkModel.Curso">
         <MappingFragment StoreEntitySet="Curso">
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
           <ScalarProperty Name="id_curso" ColumnName="id_curso" />
           <ScalarProperty Name="nombre" ColumnName="nombre" />
           <ScalarProperty Name="descripcion" ColumnName="descripcion" />

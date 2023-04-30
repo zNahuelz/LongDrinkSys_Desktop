@@ -29,6 +29,7 @@
     <Property Name="descripcion" Type="varchar" MaxLength="255" Nullable="false" />
     <Property Name="costo" Type="float" Nullable="false" />
     <Property Name="duracion" Type="tinyint" Nullable="false" />
+    <Property Name="Estado" Type="bit" />
   </EntityType>
   <EntityType Name="Especialidad">
     <Key>

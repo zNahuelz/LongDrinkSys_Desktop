@@ -35,6 +35,7 @@
     <NavigationProperty Name="Inscripcion" Relationship="Self.FK_IcC" FromRole="Curso" ToRole="Inscripcion" />
     <NavigationProperty Name="Profesor_Curso" Relationship="Self.FK_PcC" FromRole="Curso" ToRole="Profesor_Curso" />
     <NavigationProperty Name="Turnos" Relationship="Self.FK_TnC" FromRole="Curso" ToRole="Turnos" />
+    <Property Name="Estado" Type="Boolean" />
   </EntityType>
   <EntityType Name="Especialidad">
     <Key>

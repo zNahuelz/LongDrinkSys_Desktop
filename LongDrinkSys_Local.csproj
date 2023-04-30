@@ -58,7 +58,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Utils\FrontCursos.cs" />
     <Compile Include="Utils\Tools.cs" />
+    <Compile Include="View\frmCursos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\frmCursos.Designer.cs">
+      <DependentUpon>frmCursos.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\frmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -131,6 +138,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="View\frmCursos.resx">
+      <DependentUpon>frmCursos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </EmbeddedResource>
@@ -176,6 +186,7 @@
       <DependentUpon>LongDrinkModel.edmx</DependentUpon>
       <LastGenOutput>LongDrinkModel.cs</LastGenOutput>
     </Content>
+    <None Include="Resources\icons8-aula-100.png" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

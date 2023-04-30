@@ -28,6 +28,7 @@ namespace LongDrinkSys_Local.Model
         public string descripcion { get; set; }
         public double costo { get; set; }
         public byte duracion { get; set; }
+        public Nullable<bool> Estado { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Clases> Clases { get; set; }

@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="LongDrinkModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="LongDrinkModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Alumno">
           <Key>
             <PropertyRef Name="id_alumno" />
@@ -34,6 +34,7 @@
           <Property Name="descripcion" Type="varchar" MaxLength="255" Nullable="false" />
           <Property Name="costo" Type="float" Nullable="false" />
           <Property Name="duracion" Type="tinyint" Nullable="false" />
+          <Property Name="Estado" Type="bit" />
         </EntityType>
         <EntityType Name="Especialidad">
           <Key>
@@ -310,8 +311,7 @@ advertencia 6002: La tabla o vista 'LongDrink.dbo.Usuario_Profesor' no tiene def
             <End Role="Usuario_Profesor" EntitySet="Usuario_Profesor" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="LongDrinkModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -350,6 +350,7 @@ advertencia 6002: La tabla o vista 'LongDrink.dbo.Usuario_Profesor' no tiene def
           <NavigationProperty Name="Inscripcion" Relationship="Self.FK_IcC" FromRole="Curso" ToRole="Inscripcion" />
           <NavigationProperty Name="Profesor_Curso" Relationship="Self.FK_PcC" FromRole="Curso" ToRole="Profesor_Curso" />
           <NavigationProperty Name="Turnos" Relationship="Self.FK_TnC" FromRole="Curso" ToRole="Turnos" />
+          <Property Name="Estado" Type="Boolean" />
         </EntityType>
         <EntityType Name="Especialidad">
           <Key>
@@ -603,6 +604,7 @@ advertencia 6002: La tabla o vista 'LongDrink.dbo.Usuario_Profesor' no tiene def
           <EntitySetMapping Name="Curso">
             <EntityTypeMapping TypeName="LongDrinkModel.Curso">
               <MappingFragment StoreEntitySet="Curso">
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
                 <ScalarProperty Name="id_curso" ColumnName="id_curso" />
                 <ScalarProperty Name="nombre" ColumnName="nombre" />
                 <ScalarProperty Name="descripcion" ColumnName="descripcion" />

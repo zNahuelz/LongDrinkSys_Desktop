@@ -9,6 +9,7 @@ namespace LongDrinkSys_Local.View
         public string NombreUsuario { get; set; }
         public bool PermisosUsuario { get; set; }
 
+        private frmCursos fCursos;
         public frmPrincipal()
         {
             InitializeComponent();
@@ -37,5 +38,18 @@ namespace LongDrinkSys_Local.View
         {
             lblDatos.Text = "USUARIO: " + NombreUsuario.ToUpper() + Environment.NewLine + "HORA: " + DateTime.Now.ToString("hh:mm:ss");
         }
+
+        private void tsBCursos_Click(object sender, EventArgs e)
+        {
+            if (fCursos == null)
+            {
+                fCursos = new frmCursos();
+                fCursos.MdiParent = this;
+                fCursos.FormClosed += new FormClosedEventHandler(CerrarCursos);
+                fCursos.Show();
+            }
+            else { fCursos.Focus(); }
+        }
+        void CerrarCursos(object sender, FormClosedEventArgs e) { fCursos = null; }
     }
 }
