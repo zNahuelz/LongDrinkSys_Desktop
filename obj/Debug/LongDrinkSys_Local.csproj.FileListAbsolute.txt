@@ -17,3 +17,4 @@ D:\Development\C#\LongDrinkSys_Local\obj\Debug\LongDrinkSys_Local.csproj.CopyCom
 D:\Development\C#\LongDrinkSys_Local\obj\Debug\LongDrinkSys_Local.View.frmPrincipal.resources
 D:\Development\C#\LongDrinkSys_Local\obj\Debug\LongDrinkSys_Local.View.frmRecuperarCredenciales.resources
 D:\Development\C#\LongDrinkSys_Local\obj\Debug\LongDrinkSys_Local.View.frmCursos.resources
+D:\Development\C#\LongDrinkSys_Local\obj\Debug\LongDrinkSys_Local.View.frmProfesores.resources

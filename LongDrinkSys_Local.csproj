@@ -59,6 +59,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Utils\FrontCursos.cs" />
+    <Compile Include="Utils\FrontProfesores.cs" />
     <Compile Include="Utils\Tools.cs" />
     <Compile Include="View\frmCursos.cs">
       <SubType>Form</SubType>
@@ -122,6 +123,12 @@
     <Compile Include="View\frmPrincipal.Designer.cs">
       <DependentUpon>frmPrincipal.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\frmProfesores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\frmProfesores.Designer.cs">
+      <DependentUpon>frmProfesores.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\frmRecuperarCredenciales.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -146,6 +153,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\frmPrincipal.resx">
       <DependentUpon>frmPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\frmProfesores.resx">
+      <DependentUpon>frmProfesores.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\frmRecuperarCredenciales.resx">
       <DependentUpon>frmRecuperarCredenciales.cs</DependentUpon>
@@ -186,6 +196,8 @@
       <DependentUpon>LongDrinkModel.edmx</DependentUpon>
       <LastGenOutput>LongDrinkModel.cs</LastGenOutput>
     </Content>
+    <None Include="Resources\icons8-profesor-64.png" />
+    <None Include="Resources\icons8-cerrar-sesión-64.png" />
     <None Include="Resources\icons8-aula-100.png" />
   </ItemGroup>
   <ItemGroup>

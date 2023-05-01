@@ -15,8 +15,8 @@ namespace LongDrinkSys_Local.View
             InitializeComponent();
         }
 
-        public List<string> ListaEstados = new List<string>() 
-        { 
+        public List<string> ListaEstados = new List<string>()
+        {
             "VIGENTE","INACTIVO"
         };
         public List<string> ListaTurnos = new List<string>()
@@ -34,12 +34,12 @@ namespace LongDrinkSys_Local.View
                                select new FrontCursos
                                {
                                    id_curso = i.id_curso,
-                                   nombre= i.nombre,
-                                   descripcion= i.descripcion,
-                                   costo= i.costo,
-                                   duracion= i.duracion,
+                                   nombre = i.nombre,
+                                   descripcion = i.descripcion,
+                                   costo = i.costo,
+                                   duracion = i.duracion,
                                    estado = (bool)i.Estado
-                                
+
                                }).ToList();
                     foreach (var i in sql)
                     {
@@ -79,6 +79,15 @@ namespace LongDrinkSys_Local.View
             cbTurno.DataSource = ListaTurnos;
             cbTurno.SelectedIndex = 0;
             GridDesign();
+            cbEstadoL.DataSource = ListaEstados;
+            cbEstadoL.SelectedIndex = 0;
+            txtDescL.ReadOnly = true;
+            cbEstadoL.Enabled = false;
+            nudCostoL.Enabled = false;
+            nudDuracionL.Enabled = false;
+            btnGuardarC.Enabled = false;
+            btnCancelar.Enabled = false;
+            txtIDL.ReadOnly = true;
         }
 
         private void tabPage2_Click(object sender, System.EventArgs e)
@@ -108,7 +117,7 @@ namespace LongDrinkSys_Local.View
 
         private void btnLimpiar_Click(object sender, System.EventArgs e)
         {
-            foreach(Control c in tabPage1.Controls)
+            foreach (Control c in tabPage1.Controls)
             {
                 if (c is TextBox)
                 {
@@ -128,9 +137,9 @@ namespace LongDrinkSys_Local.View
             float c = (float)nudCosto.Value;
             int d = (int)nudDuracion.Value;
 
-            if(nombre.Length> 0 && descripcion.Length > 0)
+            if (nombre.Length > 0 && descripcion.Length > 0)
             {
-                if (c>0 && c<=1000 && d>0 && d <= 12)
+                if (c > 0 && c <= 1000 && d > 0 && d <= 12)
                 {
                     string valorTurno = "";
                     Curso curso = new Curso();
@@ -138,13 +147,13 @@ namespace LongDrinkSys_Local.View
                     curso.descripcion = descripcion;
                     curso.costo = c;
                     curso.duracion = (byte)d;
-                    if(cbEstado.SelectedIndex == 0){ curso.Estado = true; }
-                    else{ curso.Estado = false; }
-                    if(cbTurno.SelectedIndex == 0) { valorTurno = "M"; }
+                    if (cbEstado.SelectedIndex == 0) { curso.Estado = true; }
+                    else { curso.Estado = false; }
+                    if (cbTurno.SelectedIndex == 0) { valorTurno = "M"; }
                     else if (cbTurno.SelectedIndex == 1) { valorTurno = "T"; }
                     else { valorTurno = "N"; }
                     RegistrarCurso(curso, valorTurno);
-                    MessageBox.Show("Curso registrado con exito!","INFORMACIÓN",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                    MessageBox.Show("Curso registrado con exito!", "INFORMACIÓN", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
@@ -153,7 +162,7 @@ namespace LongDrinkSys_Local.View
             }
             else
             {
-                MessageBox.Show("Los campos de nombre y descripción deben estar llenos!","ADVERTENCIA",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                MessageBox.Show("Los campos de nombre y descripción deben estar llenos!", "ADVERTENCIA", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
         }
@@ -162,7 +171,7 @@ namespace LongDrinkSys_Local.View
         {
             try
             {
-                using(LongDrinkEntities db = new LongDrinkEntities())
+                using (LongDrinkEntities db = new LongDrinkEntities())
                 {
                     db.Curso.Add(c);
                     db.SaveChanges();
@@ -175,7 +184,7 @@ namespace LongDrinkSys_Local.View
                         turno.hora_inicio = new TimeSpan(9, 00, 00);
                         turno.hora_final = new TimeSpan(12, 30, 00);
                     }
-                    else if(t == "T")
+                    else if (t == "T")
                     {
                         turno.nombre = "TARDE";
                         turno.hora_inicio = new TimeSpan(13, 30, 00);
@@ -189,10 +198,151 @@ namespace LongDrinkSys_Local.View
                     }
                     db.Turnos.Add(turno);
                     db.SaveChanges();
-                    
+
                 }
             }
             catch { throw; }
+        }
+
+        private void label9_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            cbEditar.Checked = false;
+            foreach (Control c in gbPrincipal.Controls)
+            {
+                if (c is TextBox)
+                {
+                    c.Text = "";
+                }
+            }
+            nudCostoL.Value = 100;
+            nudDuracionL.Value = 1;
+            cbEstadoL.SelectedIndex = 0;
+        }
+
+        private void dgvCursos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void dgvCursos_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex > -1 && e.ColumnIndex > -1 && dgvCursos.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
+            {
+                dgvCursos.CurrentRow.Selected = true;
+                txtDescL.Text = dgvCursos.Rows[e.RowIndex].Cells["descripcion"].FormattedValue.ToString();
+                string costo = dgvCursos.Rows[e.RowIndex].Cells["costo"].FormattedValue.ToString();
+                nudCostoL.Value = decimal.Parse(costo);
+                string duracion = dgvCursos.Rows[e.RowIndex].Cells["duracion"].FormattedValue.ToString();
+                nudDuracionL.Value = decimal.Parse(duracion);
+                txtIDL.Text = dgvCursos.Rows[e.RowIndex].Cells["id_curso"].FormattedValue.ToString();
+            }
+        }
+
+        private void cbEditar_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbEditar.Checked)
+            {
+                btnGuardarC.Enabled = true;
+                btnCancelar.Enabled = true;
+                nudDuracionL.Enabled = true;
+                nudCostoL.Enabled = true;
+                cbEstadoL.Enabled = true;
+                txtDescL.ReadOnly = false;
+                txtIDL.ReadOnly = true;
+
+            }
+            else
+            {
+                btnGuardarC.Enabled = false;
+                btnCancelar.Enabled = false;
+                nudDuracionL.Enabled = false;
+                nudCostoL.Enabled = false;
+                cbEstadoL.Enabled = false;
+                txtDescL.ReadOnly = true;
+                txtIDL.ReadOnly = true;
+            }
+        }
+
+        public void EditarCurso(Curso c)
+        {
+            try
+            {
+                using (LongDrinkEntities db = new LongDrinkEntities())
+                {
+                    var sql = from i in db.Curso where i.id_curso == c.id_curso select i;
+                    foreach (Curso mod in sql)
+                    {
+                        mod.descripcion = c.descripcion;
+                        mod.costo = c.costo;
+                        mod.duracion = c.duracion;
+                        mod.Estado = c.Estado;
+                    }
+                    db.SaveChanges();
+                }
+            }
+            catch { throw; }
+        }
+
+        private void btnGuardarC_Click(object sender, EventArgs e)
+        {
+            Curso c = new Curso();
+            c.id_curso = int.Parse(txtIDL.Text);
+            c.descripcion = txtDescL.Text;
+            c.costo = (double)nudCostoL.Value;
+            c.duracion = (byte)nudDuracionL.Value;
+            if(cbEstadoL.SelectedIndex == 0)
+            {
+                c.Estado = true;
+            }
+            else { c.Estado = false; }
+            if(txtDescL.Text.Length >0 && txtDescL.Text.Length <= 255)
+            {
+                EditarCurso(c);
+                dgvCursos.DataSource = Listar();
+                GridDesign();
+                MessageBox.Show("Curso modificado con exito!", "INFORMACIÓN", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                cbEditar.Checked = false;
+            }
+            else { MessageBox.Show("Debe llenar el campo descripcíón!","ADVERTENCIA",MessageBoxButtons.OK, MessageBoxIcon.Error); }
+
+        }
+
+        public void EliminarCurso(Curso c)
+        {
+            try
+            {
+                using (LongDrinkEntities db = new LongDrinkEntities())
+                {
+                    var sql = from i in db.Curso where i.id_curso == c.id_curso select i;
+                    foreach(Curso e in sql)
+                    {
+                        e.Estado = false;
+                    }
+                    db.SaveChanges();
+                }
+            }
+            catch { throw; }
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            Curso c = new Curso();
+            c.id_curso = int.Parse(txtIDL.Text);
+            DialogResult consulta = MessageBox.Show("¿Está seguro de eliminar el siguiente curso?" + Environment.NewLine + "ID: " + txtIDL.Text + Environment.NewLine + "DESCRIPCIÓN: " + txtDescL.Text, "CONSULTA", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if(consulta == DialogResult.Yes)
+            {
+                EliminarCurso(c);
+                dgvCursos.DataSource = Listar();
+                GridDesign();
+                MessageBox.Show("Curso eliminado con exito!", "INFORMACIÓN", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                cbEditar.Checked = false;
+            }
+
         }
     }
 }

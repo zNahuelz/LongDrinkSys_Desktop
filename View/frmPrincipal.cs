@@ -10,6 +10,7 @@ namespace LongDrinkSys_Local.View
         public bool PermisosUsuario { get; set; }
 
         private frmCursos fCursos;
+        private frmProfesores fProfesores;
         public frmPrincipal()
         {
             InitializeComponent();
@@ -51,5 +52,23 @@ namespace LongDrinkSys_Local.View
             else { fCursos.Focus(); }
         }
         void CerrarCursos(object sender, FormClosedEventArgs e) { fCursos = null; }
+
+        private void tsBCerrarS_Click(object sender, EventArgs e)
+        {
+            DialogResult cons = MessageBox.Show("¿Desea cerrar sesión?","CONSULTA",MessageBoxButtons.YesNo,MessageBoxIcon.Question);
+            if (cons == DialogResult.Yes) { Application.Restart(); }
+        }
+
+        private void tsBDocentes_Click(object sender, EventArgs e)
+        {
+            if(fProfesores == null)
+            {
+                fProfesores= new frmProfesores();
+                fProfesores.MdiParent = this;
+                fProfesores.FormClosed += new FormClosedEventHandler(CerrarProfesores);
+                fProfesores.Show();
+            }
+        }
+        void CerrarProfesores(object sender, FormClosedEventArgs e) { fProfesores = null; }
     }
 }

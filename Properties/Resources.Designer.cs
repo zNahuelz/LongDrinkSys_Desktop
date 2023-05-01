@@ -73,6 +73,26 @@ namespace LongDrinkSys_Local.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icons8_cerrar_sesión_64 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-cerrar-sesión-64", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_profesor_64 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-profesor-64", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap logo_longdrink_removebg_preview {
             get {
                 object obj = ResourceManager.GetObject("logo_longdrink-removebg-preview", resourceCulture);
